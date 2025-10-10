@@ -1,10 +1,21 @@
 n = int(input())
 
-def MinDivisor(x):
-    for i in range(2, x + 1):
-        if x % i == 0:
-            print(i)
-            return
-    print(x)
 
-MinDivisor(n)
+def MinDivisor01(n):
+    for i in range(2, n):
+        if n % i == 0: return i
+
+    return n
+
+
+def MinDivisor02(n):
+    if n % 2 == 0: return 2
+
+    for i in range(3, int(n ** 0.5) + 1, 2):
+        if n % i == 0: return i
+
+    return n
+
+
+print(MinDivisor01(n))
+print(MinDivisor02(n))
